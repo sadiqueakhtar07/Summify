@@ -1,0 +1,124 @@
+.features-page {
+  width: 100%;
+  /* min-height: 100vh; */
+  padding: 80px 20px;
+  background: #1e1e1e;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.features-page h2 {
+  font-size: 40px;
+  margin-bottom: 50px;
+  color: #008cef;
+  animation: fadeSlideUp 0.6s ease forwards;
+}
+
+
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 320px); 
+  justify-content: center; 
+  gap: 30px;
+}
+
+
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  border-radius: 15px;
+  border: 2px solid #008cef;
+  background-color: transparent;
+  min-height: 320px;
+  height: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+
+
+  opacity: 0;
+  animation: fadeSlideUp 0.6s ease forwards;
+}
+
+
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 140, 239, 0.3);
+}
+
+
+
+.feature-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  background: #008cef;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.feature-icon {
+  font-size: 28px;
+  color: #fff;
+}
+
+
+
+.feature-card h3 {
+  font-size: 22px;
+  margin: 10px 0;
+  color: #008cef;
+}
+
+.feature-card p {
+  font-size: 15px;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+
+
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s; }
+.feature-card:nth-child(5) { animation-delay: 0.5s; }
+
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+
+
+@media (max-width: 650px) {
+  .features-grid {
+    grid-template-columns: 280px;
+  }
+
+  .features-page h2 {
+    font-size: 32px;
+  }
+}
