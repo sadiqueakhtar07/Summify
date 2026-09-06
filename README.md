@@ -22,66 +22,27 @@
 
 ### 🏠 Home / Landing Page
 
-<img src="screenshots/screenshot-5.png" alt="Summify Home" width="100%">
+<img src="https://github.com/sadiqueakhtar07/Summify/blob/main/images/image1.png" alt="Summify Home" width="100%">
 
 ### 📖 Summarization Dashboard
 
-<img src="screenshots/screenshot-1.png" alt="Summify Dashboard" width="100%">
-
-### 🗺️ Interactive MindMap
-
-<img src="screenshots/screenshot-2.png" alt="Interactive MindMap" width="100%">
+<img src="https://github.com/sadiqueakhtar07/Summify/blob/main/images/image3.png" alt="Summify Dashboard" width="100%">
 
 ### 🕘 Summary History
 
-<img src="screenshots/screenshot-3.png" alt="Summary History" width="100%">
+<img src="https://github.com/sadiqueakhtar07/Summify/blob/main/images/image4.png" alt="Summary History" width="100%">
 
 ### 👨‍💼 Admin Dashboard
 
-<img src="screenshots/screenshot-4.png" alt="Admin Dashboard" width="100%">
-
-### ⭐ Features
-
-<img src="screenshots/screenshot-6.png" alt="Summify Features" width="100%">
-
-### ℹ️ About Summify
-
-<img src="screenshots/screenshot-7.png" alt="About Summify" width="100%">
+<img src="https://github.com/sadiqueakhtar07/Summify/blob/main/images/image5.png" alt="Admin Dashboard" width="100%">
 
 ### 🔐 User Registration
 
-<img src="screenshots/screenshot-8.png" alt="Sign Up" width="100%">
+<img src="https://github.com/sadiqueakhtar07/Summify/blob/main/images/image2.png" alt="Sign Up" width="100%">
 
 ## 🧠 How Summify Works
 
-```text
-          Book / Text Input
-                  │
-                  ▼
-          Text Extraction
-                  │
-                  ▼
-        NLP Preprocessing
-                  │
-                  ▼
-        Text Chunking
-                  │
-                  ▼
-       Transformer AI Model
-                  │
-                  ▼
-        Summary Generation
-                  │
-          ┌───────┼────────┐
-          ▼       ▼        ▼
-       Summary  Bullets  MindMap
-                          │
-                          ▼
-                       Quiz
-                          │
-                          ▼
-                     PDF Export
-```
+<img src="https://github.com/sadiqueakhtar07/Summify/blob/main/images/Diagram.png" alt="Sign Up" width="100%">
 
 For large documents, the text is divided into manageable chunks with contextual overlap before summarization. Chunk-level results are then combined into a coherent final summary.
 
