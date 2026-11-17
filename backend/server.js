@@ -7,6 +7,7 @@ import historyRoute from './routes/history.js';
 import uploadRoute from './routes/uploadfile.js';
 import adminRoute from './routes/admin.js';
 import quizRoute from './routes/quiz.js';
+import corsOptions from './middleware/corsMiddleware.js';
 
 const PORT=process.env.PORT ||5000;
 
@@ -30,9 +31,11 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
+app.options(/.*/, cors());
 
+app.use(cors(corsOptions));
 app.use(express.json());
-
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/auth', authRoutes);
 app.use('/api',historyRoute);
