@@ -7,7 +7,7 @@ import historyRoute from './routes/history.js';
 import uploadRoute from './routes/uploadfile.js';
 import adminRoute from './routes/admin.js';
 import quizRoute from './routes/quiz.js';
-import corsOptions from './middleware/corsMiddleware.js';
+
 
 const PORT=process.env.PORT ||5000;
 
@@ -15,6 +15,7 @@ const app=express();
 
 const allowedOrigins = [
     "http://localhost:5173",
+    "http://localhost:5174",
     "https://summify-frontend.vercel.app"
 ];
 
@@ -31,9 +32,8 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-app.options(/.*/, cors());
 
-app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -44,10 +44,11 @@ app.use('/api/admin', adminRoute);
 app.use('/api', quizRoute);
 
 
-app.listen(PORT,()=>{
-    console.log(`server is running on port ${PORT}`);
-    connectDB();
-});
+
+// app.listen(PORT,()=>{
+//     console.log(`server is running on port ${PORT}`);
+//     connectDB();
+// });
 
 const connectDB=async()=>{
     try{
@@ -57,4 +58,7 @@ const connectDB=async()=>{
         console.log("Failed to connect with database",err);
     }
 }
+connectDB();
+
+export default app;
 
