@@ -1,7 +1,8 @@
 import express from "express";
 import multer from "multer";
 import fs from 'fs';
-import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
+import { DOMMatrix, ImageData, Path2D } from '@napi-rs/canvas';
+// import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
 import {PDFDocument, StandardFonts} from 'pdf-lib';
 
 import rawData from "../models/rawData.js";
@@ -11,10 +12,15 @@ import Summaries from "../models/summaries.js";
 import getResponse from "../utils/summaryAPI.js";
 import authMiddleware from "../middleware/authMiddleware.js";
 
+globalThis.DOMMatrix = DOMMatrix;
+globalThis.ImageData = ImageData;
+globalThis.Path2D = Path2D;
+
 const router = express.Router();
 const upload = multer({ dest: "uploads/" });
 
 async function extractText(path){
+    const pdfjs = await import('pdfjs-dist/legacy/build/pdf.mjs');
     const data=new Uint8Array(fs.readFileSync(path));
     const loadingTask = pdfjs.getDocument({data});
     const pdf= await loadingTask.promise;
