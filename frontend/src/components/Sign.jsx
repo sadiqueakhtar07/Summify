@@ -3,6 +3,8 @@ import './Sign.css';
 import { MyContext } from '../contextAPI/contextAPI';
 import { useNavigate } from 'react-router-dom';
 
+const API_URL=import.meta.env.VITE_API_URL;
+
 const Sign = () => {
   const navigate = useNavigate();
   const { setShowSignup, setToken, setUserRole } = useContext(MyContext);
@@ -29,8 +31,8 @@ const Sign = () => {
     setError("");
 
     const url = currState === "Login"
-      ? "http://localhost:3000/api/auth/login"
-      : "http://localhost:3000/api/auth/signup";
+      ? `${API_URL}/api/auth/login`
+      : `${API_URL}/api/auth/signup`;
 
     try {
       const response = await fetch(url, {

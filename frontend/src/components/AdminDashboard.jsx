@@ -19,6 +19,8 @@ import {
   Line
 } from "recharts";
 
+const API_URL= import.meta.env.VITE_API_URL;
+
 const COLORS = ["#4CAF50", "#2196F3", "#FF9800"];
 
 const AdminDashboard = () => {
@@ -69,9 +71,9 @@ const AdminDashboard = () => {
       const token = localStorage.getItem("token");
 
       const [usersRes, booksRes, summariesRes] = await Promise.all([
-        fetch("http://localhost:3000/api/admin/users", { headers: { Authorization: `Bearer ${token}` } }),
-        fetch("http://localhost:3000/api/admin/books", { headers: { Authorization: `Bearer ${token}` } }),
-        fetch("http://localhost:3000/api/admin/summaries", { headers: { Authorization: `Bearer ${token}` } })
+        fetch(`${API_URL}/api/admin/users`, { headers: { Authorization: `Bearer ${token}` } }),
+        fetch(`${API_URL}/api/admin/books`, { headers: { Authorization: `Bearer ${token}` } }),
+        fetch(`${API_URL}/api/admin/summaries`, { headers: { Authorization: `Bearer ${token}` } })
       ]);
 
       setUsers(await usersRes.json());
@@ -109,7 +111,7 @@ const AdminDashboard = () => {
 
       const token = localStorage.getItem("token");
 
-      const res = await fetch(`http://localhost:3000/api/admin/${type}/${id}`, {
+      const res = await fetch(`${API_URL}/api/admin/${type}/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`
@@ -145,7 +147,7 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        "http://localhost:3000/api/auth/signup",
+        `${API_URL}/api/auth/signup`,
         {
           method: "POST",
           headers: {

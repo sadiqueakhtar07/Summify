@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from 'react'
 import './Sidebar.css'
 import { MyContext } from '../contextAPI/contextAPI';
 
+const API_URL=import.meta.env.VITE_API_URL;
+
 const Sidebar = ({ onHistoryClick }) => {
     const { token, selectedHistory, setSelectedHistory } = useContext(MyContext);
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -20,7 +22,7 @@ const Sidebar = ({ onHistoryClick }) => {
     const fetchHistory = async () => {
         try {
             setLoading(true);
-            const res = await fetch("http://localhost:3000/api/history", {
+            const res = await fetch(`${API_URL}/api/history`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

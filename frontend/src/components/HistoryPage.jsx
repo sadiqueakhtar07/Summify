@@ -3,6 +3,9 @@ import './HistoryPage.css';
 import { MyContext } from '../contextAPI/contextAPI';
 import { FaTrash, FaEye } from "react-icons/fa";
 
+
+const API_URL=import.meta.env.VITE_API_URL;
+
 const HistoryPage = () => {
 
   const { token, setSelectedHistory, setActivePage } = useContext(MyContext);
@@ -22,7 +25,7 @@ const HistoryPage = () => {
     const fetchHistory = async () => {
       try {
         const res = await fetch(
-          'http://localhost:3000/api/history',
+          `${API_URL}/api/history`,
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -66,7 +69,7 @@ const HistoryPage = () => {
   const deleteHistory = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/history/${selectedDeleteId}`,
+        `${API_URL}/api/history/${selectedDeleteId}`,
         {
           method: "DELETE",
           headers: {

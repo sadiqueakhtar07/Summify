@@ -10,14 +10,30 @@ import quizRoute from './routes/quiz.js';
 
 const PORT=process.env.PORT ||5000;
 
-
 const app=express();
+
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://summify-frontend.vercel.app"
+];
+
 app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS: " + origin));
+        }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
+
 app.use(express.json());
+
+
 app.use('/api/auth', authRoutes);
 app.use('/api',historyRoute);
 app.use('/api',uploadRoute);

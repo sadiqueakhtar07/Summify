@@ -4,6 +4,8 @@ import { MyContext } from '../contextAPI/contextAPI';
 import { ScaleLoader } from 'react-spinners';
 import MindMap from './MindMap';
 
+const API_URL=import.meta.env.VITE_API_URL;
+
 const Hero = () => {
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
@@ -73,7 +75,7 @@ const Hero = () => {
         }
 
         try {
-            const res = await fetch('http://localhost:3000/api/upload', {
+            const res = await fetch(`${API_URL}/api/upload`, {
                 method: "POST",
                 headers: { Authorization: `Bearer ${token}` },
                 body: formData
@@ -140,7 +142,7 @@ const Hero = () => {
         setShowResult(false);
 
         try {
-            const response = await fetch("http://localhost:3000/api/generate-quiz", {
+            const response = await fetch(`${API_URL}/api/generate-quiz`, {
                 method: "POST",
                 headers: { 
                     "Content-Type": "application/json",
