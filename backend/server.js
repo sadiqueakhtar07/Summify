@@ -10,7 +10,6 @@ import quizRoute from './routes/quiz.js';
 
 
 const PORT=process.env.PORT ||5000;
-
 const app=express();
 
 const allowedOrigins = [
